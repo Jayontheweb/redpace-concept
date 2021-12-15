@@ -1,0 +1,18 @@
+.sign-in {
+    width: 380px;
+
+    .title {
+        margin: 10px;
+    }
+
+    .sign-button {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+.new-account {
+    display: block;
+    margin-top: 20px;
+    font-size: 18px;
+}
