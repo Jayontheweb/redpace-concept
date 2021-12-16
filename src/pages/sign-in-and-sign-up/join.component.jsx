@@ -1,10 +1,12 @@
 
+import Join from '../../components/join/join.component';
+
 import './sign-in-and-sign-up.styles.scss';
 
-export default function Join() {
+export default function JoinPage() {
     return (
         <div className='sign-in-and-sign-up'>
-            <h1>SIGN UP</h1>
+            <Join />
         </div>
     )
 }

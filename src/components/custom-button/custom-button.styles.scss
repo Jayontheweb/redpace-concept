@@ -13,11 +13,13 @@
     font-weight: bolder;
     border: none;
     cursor: pointer;
+    transition:all;
+    transition-duration: 0.3s;
   
     &:hover {
-      background-color: white;
+      background-color: #FF472E;
       color: black;
-      border: 1px solid black;
+      // border: 1px solid black;
     }
 
 
@@ -26,7 +28,7 @@
       color: white;
 
       &:hover {
-        background-color: #357ae8;
+        background-color: #1761d6;
         border: none;
       }
     }

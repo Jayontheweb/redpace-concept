@@ -1,5 +1,10 @@
 .sign-in {
+    margin-top: 10vh;
     width: 380px;
+    
+    transition: all;
+    transition-property: all;
+    transition-duration: 5s;
 
     .title {
         margin: 10px;
@@ -15,4 +20,13 @@
     display: block;
     margin-top: 20px;
     font-size: 18px;
+
+    .join-link {
+        padding: 0 5px;
+        color: #FF472E;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
