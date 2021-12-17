@@ -64,6 +64,7 @@ class Join extends React.Component {
         return (
             <div className='join'>
                 <h2 className='title'>Creating your account...</h2>
+                <span className='subtitle'>Please, fill out the form:</span>
                 <form className='join-form' onSubmit={this.handleSubmit}>
                     <FormInput
                         type='text'
