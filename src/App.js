@@ -5,6 +5,8 @@ import ShopPage from './pages/shop/shop.component';
 import JoinPage from './pages/sign-in-and-sign-up/join.component';
 import SignInPage from './pages/sign-in-and-sign-up/sign-in.component';
 import CheckoutPage from './pages/checkout/checkout.component';
+import CollectionsOverview from './components/collections-overview';
+import CollectionPage from './pages/collection';
 
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
@@ -60,7 +62,10 @@ class App extends React.Component {
         <Header />
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/shop' element={<ShopPage />} />
+          <Route path='/shop' element={<ShopPage />} >
+            <Route index element={<CollectionsOverview />} />
+            <Route path=':collectionId' element={<CollectionPage />} />
+          </Route>
           <Route path='/checkout' element={<CheckoutPage />} />
           <Route path='/signin' element={this.props.currentUser ? <Navigate replace to='/' /> : <SignInPage />} />
           <Route path='/join' element={this.props.currentUser ? <Navigate replace to='/' /> : <JoinPage />} />
