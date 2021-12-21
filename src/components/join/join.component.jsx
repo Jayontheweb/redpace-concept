@@ -6,6 +6,9 @@ import CustomButton from '../custom-button/custom-button.component';
 
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './join.styles.scss';
 
 class Join extends React.Component {
@@ -20,13 +23,15 @@ class Join extends React.Component {
         }
     };
 
+
+
     handleSubmit = async e => {
         e.preventDefault();
 
         const { displayName, email, password, confirmPassword } = this.state;
 
         if (password !== confirmPassword) {
-            alert("passwords don't match");
+            toast.error('Passwords do not match');
             return;
         };
 
@@ -63,6 +68,7 @@ class Join extends React.Component {
 
         return (
             <div className='join'>
+                <ToastContainer />
                 <h2 className='title'>Creating your account...</h2>
                 <span className='subtitle'>Please, fill out the form:</span>
                 <form className='join-form' onSubmit={this.handleSubmit}>
