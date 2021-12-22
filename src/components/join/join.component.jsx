@@ -31,7 +31,16 @@ class Join extends React.Component {
         const { displayName, email, password, confirmPassword } = this.state;
 
         if (password !== confirmPassword) {
-            toast.error('Passwords do not match');
+            toast.error('Passwords do not match',
+                {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             return;
         };
 

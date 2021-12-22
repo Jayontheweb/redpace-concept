@@ -4,6 +4,8 @@ import StripeCheckout from 'react-stripe-checkout';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import CustomButton from '../custom-button/custom-button.component';
+
 
 const StripeCheckoutButton = ({ price }) => {
     const priceForStripe = price * 100;
@@ -32,6 +34,7 @@ const StripeCheckoutButton = ({ price }) => {
             <StripeCheckout
                 label='Pay Now'
                 name='RED PACE Ltd.'
+                image='/R.png'
                 billingAddress
                 shippingAddress
                 currency='GBP'
@@ -40,7 +43,9 @@ const StripeCheckoutButton = ({ price }) => {
                 panelLabel='Pay Now'
                 token={onToken}
                 stripeKey={publishableKey}
-            />
+            >
+                <CustomButton>Pay Now</CustomButton>
+            </StripeCheckout>
             <ToastContainer />
         </>
     )
