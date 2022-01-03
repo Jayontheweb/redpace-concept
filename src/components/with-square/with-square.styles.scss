@@ -1,0 +1,72 @@
+  .square-wrapper {
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  
+  .mega-square-grid{
+    width: 40px;
+    height: 40px;
+    margin: 100px auto;
+  
+  
+  .singular-square {
+    width: 33%;
+    height: 33%;
+    background-color: #FF472E;
+    float: left;
+    -webkit-animation: mega-squareScaleDelay 1.3s infinite ease-in-out;
+            animation: mega-squareScaleDelay 1.3s infinite ease-in-out; 
+  }
+  .square-1 {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s; }
+  .square-2 {
+    -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s; }
+  .square-3 {
+    -webkit-animation-delay: 0.4s;
+            animation-delay: 0.4s; }
+  .square-4 {
+    -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s; }
+  .square-5 {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s; }
+  .square-6 {
+    -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s; }
+  .square-7 {
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s; }
+  .square-8 {
+    -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s; }
+  .square-9 {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s; }
+  
+  @-webkit-keyframes mega-squareScaleDelay {
+    0%, 70%, 100% {
+      -webkit-transform: scale3D(1, 1, 1);
+              transform: scale3D(1, 1, 1);
+    } 35% {
+      -webkit-transform: scale3D(0, 0, 1);
+              transform: scale3D(0, 0, 1); 
+    }
+  }
+  
+  @keyframes mega-squareScaleDelay {
+    0%, 70%, 100% {
+      -webkit-transform: scale3D(1, 1, 1);
+              transform: scale3D(1, 1, 1);
+    } 35% {
+      -webkit-transform: scale3D(0, 0, 1);
+              transform: scale3D(0, 0, 1);
+    } 
+  }
+}
