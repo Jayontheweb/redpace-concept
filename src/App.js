@@ -12,7 +12,7 @@ import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
 
 
-import React from 'react';
+import { useEffect } from 'react';
 import { Routes, Route, Navigate } from "react-router-dom";
 import './App.css';
 import { connect } from 'react-redux';
@@ -20,16 +20,11 @@ import { createStructuredSelector } from 'reselect';
 
 
 
-class App extends React.Component {
+const App = ({ currentUser, setCurrentUser }) => {
 
+  useEffect(() => {
 
-
-  unsubscribeFromAuth = null;
-
-  componentDidMount() {
-    const { setCurrentUser } = this.props;
-
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    let unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
@@ -44,29 +39,31 @@ class App extends React.Component {
         setCurrentUser(userAuth);
       }
 
-    })
-  }
+    });
+
+    return () => {
+      unsubscribeFromAuth();
+    };
+
+  }, [setCurrentUser]);
 
 
-  componentWillUnmount() {
-    this.unsubscribeFromAuth();
-  }
 
 
-  render() {
-    return (
-      <div>
-        <Header />
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/shop/*' element={<ShopPage />} />
-          <Route path='/checkout' element={<CheckoutPage />} />
-          <Route path='/signin' element={this.props.currentUser ? <Navigate replace to='/' /> : <SignInPage />} />
-          <Route path='/join' element={this.props.currentUser ? <Navigate replace to='/' /> : <JoinPage />} />
-        </Routes>
-      </div >
-    );
-  }
+
+  return (
+    <div>
+      <Header />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/shop/*' element={<ShopPage />} />
+        <Route path='/checkout' element={<CheckoutPage />} />
+        <Route path='/signin' element={currentUser ? <Navigate replace to='/' /> : <SignInPage />} />
+        <Route path='/join' element={currentUser ? <Navigate replace to='/' /> : <JoinPage />} />
+      </Routes>
+    </div >
+  );
+
 }
 
 const mapStateToProps = createStructuredSelector({
