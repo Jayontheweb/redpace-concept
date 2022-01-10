@@ -15,12 +15,15 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 import { useEffect } from 'react';
 import { Routes, Route, Navigate } from "react-router-dom";
 import './App.css';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
+import { useSelector, useDispatch } from 'react-redux';
 
 
 
-const App = ({ currentUser, setCurrentUser }) => {
+const App = () => {
+
+  const currentUser = useSelector(selectCurrentUser);
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
 
@@ -29,14 +32,14 @@ const App = ({ currentUser, setCurrentUser }) => {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapShot => {
-          setCurrentUser({
+          dispatch(setCurrentUser({
             id: snapShot.id,
             ...snapShot.data()
-          });
+          }));
 
         });
       } else {
-        setCurrentUser(userAuth);
+        dispatch(setCurrentUser(userAuth));
       }
 
     });
@@ -45,11 +48,7 @@ const App = ({ currentUser, setCurrentUser }) => {
       unsubscribeFromAuth();
     };
 
-  }, [setCurrentUser]);
-
-
-
-
+  }, [dispatch]);
 
   return (
     <div>
@@ -66,12 +65,5 @@ const App = ({ currentUser, setCurrentUser }) => {
 
 }
 
-const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
-});
 
-const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
