@@ -112,7 +112,9 @@ const Join = () => {
                     label='confirm password'
                     required
                 />
-                <CustomButton type='submit' >JOIN RED</CustomButton>
+                <div className='join-button'>
+                    <CustomButton type='submit' >JOIN RED</CustomButton>
+                </div>
 
 
 

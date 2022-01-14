@@ -1,7 +1,20 @@
 .join {
-    display: flex;
-    flex-direction: column;
+    margin-top: 15vh;
     width: 380px;
+
+    @media screen and (max-width: 400px) {
+      margin-top: 10vh;
+      padding: 0 5px;
+
+      .join-button {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+  }
+    @media screen and (max-height: 400px) {
+      margin-top: 60px;
+  }
+
 
     .subtitle {
       font-size: 18px;

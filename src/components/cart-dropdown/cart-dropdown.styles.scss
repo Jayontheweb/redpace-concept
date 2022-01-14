@@ -10,7 +10,12 @@
     background-color: white;
     top: 90px;
     right: 40px;
-    z-index: 20;
+    z-index: 50;
+
+    @media screen and (max-width: 800px) {
+        top: 60px;
+        right: 25px;
+    }
   
     .cart-items {
       height: 240px;

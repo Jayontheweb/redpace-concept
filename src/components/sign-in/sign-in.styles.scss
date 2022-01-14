@@ -1,10 +1,15 @@
 .sign-in {
-    margin-top: 10vh;
+    margin-top: 20vh;
     width: 380px;
-    
-    transition: all;
-    transition-property: all;
-    transition-duration: 5s;
+
+    @media screen and (max-width: 400px) {
+        margin-top: 17vh;
+        padding: 0 5px;
+    }
+
+    @media screen and (max-height: 400px) {
+        margin-top: 60px;
+    }
 
     .title {
         margin: 10px;
@@ -14,6 +19,11 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        @media screen and (max-width: 400px) {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 5px;
+        }
     }
 }
 .new-account {

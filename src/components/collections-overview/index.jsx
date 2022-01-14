@@ -1,6 +1,5 @@
 
 import { useSelector } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import { selectCollectionsForPrieview } from '../../redux/shop/shop.selectors';
 
 

@@ -1,6 +1,5 @@
 
 import { useSelector } from "react-redux";
-import { createStructuredSelector } from "reselect";
 
 import { selectDirectorySections } from "../../redux/directory/directory.selectors";
 
