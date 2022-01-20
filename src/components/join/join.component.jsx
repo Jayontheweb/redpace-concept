@@ -11,6 +11,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import './join.styles.scss';
 
+import { motion } from 'framer-motion/dist/framer-motion';
+
+
 const Join = () => {
     const [newUserCredentials, setNewUserCretentials] = useState({
         displayName: '',
@@ -69,11 +72,32 @@ const Join = () => {
 
 
     return (
-        <div className='join'>
+        <motion.div className='join'>
             <ToastContainer />
-            <h2 className='title'>Creating your account...</h2>
-            <span className='subtitle'>Please, fill out the form:</span>
-            <form className='join-form' onSubmit={handleSubmit}>
+            <motion.h2
+                initial={{ opacity: 0, x: 150 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                    duration: 0.2,
+                    type: 'spring',
+                    damping: 15,
+                    stiffness: 250
+                }}
+                exit={{ opacity: 0, x: -150 }}
+                className='title'>Creating your account...</motion.h2>
+            <motion.span
+                initial={{ opacity: 0, x: -150 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.2 }}
+                exit={{ opacity: 0, x: -150 }}
+                className='subtitle'>Please, fill out the form:</motion.span>
+
+            <motion.form
+                initial={{ opacity: 0, y: 250 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.2, }}
+                exit={{ opacity: 0, x: -150 }}
+                className='join-form' onSubmit={handleSubmit}>
                 <FormInput
                     type='text'
                     name='displayName'
@@ -118,8 +142,8 @@ const Join = () => {
 
 
 
-            </form>
-        </div>
+            </motion.form>
+        </motion.div>
     )
 
 }

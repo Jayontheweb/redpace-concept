@@ -10,6 +10,8 @@ import CollectionItem from '../../components/collection-item/collection-item.com
 
 import './collection.styles.scss';
 
+import { motion } from 'framer-motion/dist/framer-motion';
+
 const CollectionPage = () => {
 
     const { collectionId } = useParams();
@@ -17,14 +19,30 @@ const CollectionPage = () => {
     const { title, items } = collection;
 
     return (
-        <div className='collection-page'>
-            <h2 className='title'>{title}</h2>
+        <motion.div
+            initial={{ opacity: 0, x: 50, y: 50 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.3 }}
+            exit={{ opacity: 0, x: -150 }}
+            className='collection-page'>
+            <motion.h2
+                initial={{ opacity: 0, x: 150 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                    duration: 0.2,
+                    type: 'spring',
+                    damping: 15,
+                    stiffness: 250
+                }}
+                exit={{ opacity: 0, x: -150 }}
+                className='title'>{title}
+            </motion.h2>
             <div className='items'>
                 {
                     items.map(item => <CollectionItem key={item.id} item={item} />)
                 }
             </div>
-        </div>
+        </motion.div>
     )
 }
 

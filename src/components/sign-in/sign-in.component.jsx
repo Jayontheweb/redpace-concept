@@ -9,6 +9,9 @@ import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
 import './sign-in.styles.scss';
 
+import { motion } from 'framer-motion/dist/framer-motion';
+
+
 
 const SignIn = () => {
     const [userCredentials, setUserCredentials] = useState({ email: '', password: '' });
@@ -35,11 +38,26 @@ const SignIn = () => {
 
 
     return (
-        <div className='sign-in'>
-            <h2>Signing you in...</h2>
+        <motion.div className='sign-in'>
+            <motion.h2
+                initial={{ opacity: 0, x: 150 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                    duration: 0.2,
+                    type: 'spring',
+                    damping: 15,
+                    stiffness: 250
+                }}
+                exit={{ opacity: 0, x: -150 }}
+            >Signing you in...</motion.h2>
 
 
-            <form onSubmit={handleSubmit}>
+            <motion.form
+                initial={{ opacity: 0, y: 250 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.2, }}
+                exit={{ opacity: 0, x: -150 }}
+                onSubmit={handleSubmit}>
                 <FormInput
                     name='email'
                     type='email'
@@ -59,14 +77,14 @@ const SignIn = () => {
                     handleChange={handleChange}
                 />
 
-                <div className='sign-button'>
+                <motion.div className='sign-button'>
                     <CustomButton type="submit">SIGN IN</CustomButton>
                     <CustomButton type='button' onClick={signInWithGoogle} isGoogleSignIn>SIGN IN WITH GOOGLE</CustomButton>
-                </div>
-                <span className='new-account'>Don't have an account?<Link className='join-link' to='/join'>Create one!</Link></span>
+                </motion.div>
+                <motion.span className='new-account'>Don't have an account?<Link className='join-link' to='/join'>Create one!</Link></motion.span>
 
-            </form>
-        </div>
+            </motion.form>
+        </motion.div>
     )
 }
 

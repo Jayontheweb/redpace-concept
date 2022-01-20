@@ -1,6 +1,7 @@
 
 import Header from './components/header/header.component';
 import ErrorBoundary from './components/error-boundary';
+import ScrollToTop from './components/scroll-to-top';
 // import Square from './components/square';
 // import HomePage from './pages/homepage/homepage.component';
 // import ShopPage from './pages/shop/shop.component';
@@ -15,8 +16,11 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 import { GlobalStyle } from './global.styles';
 
 import { useEffect, lazy, Suspense } from 'react';
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
+
+import { AnimatePresence, motion } from 'framer-motion/dist/framer-motion';
+
 
 const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
 const ShopPage = lazy(() => import('./pages/shop/shop.component'));
@@ -29,6 +33,7 @@ const App = () => {
   const currentUser = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
 
+  const location = useLocation();
 
   useEffect(() => {
 
@@ -56,46 +61,50 @@ const App = () => {
   }, [dispatch]);
 
 
+
   return (
     <>
       <Header />
-      <Routes>
-        <Route path='/' element={
-          <ErrorBoundary>
-            <Suspense fallback={<></>}>
-              <HomePage />
-            </Suspense>
-          </ErrorBoundary>
-        } />
-        <Route path='/shop/*' element={
-          <ErrorBoundary>
-            <Suspense fallback={<></>}>
-              <ShopPage />
-            </Suspense>
-          </ErrorBoundary>
-        } />
-        <Route path='/checkout' element={
-          <ErrorBoundary>
-            <Suspense fallback={<></>}>
-              <CheckoutPage />
-            </Suspense>
-          </ErrorBoundary>
-        } />
-        <Route path='/signin' element={currentUser ? <Navigate replace to='/' /> :
-          <ErrorBoundary>
-            <Suspense fallback={<></>}>
-              <SignInPage />
-            </Suspense>
-          </ErrorBoundary>
-        } />
-        <Route path='/join' element={currentUser ? <Navigate replace to='/' /> :
-          <ErrorBoundary>
-            <Suspense fallback={<></>}>
-              <JoinPage />
-            </Suspense>
-          </ErrorBoundary>
-        } />
-      </Routes>
+      <ScrollToTop />
+      <AnimatePresence exitBeforeEnter>
+        <Routes location={location} key={location.pathname}>
+          <Route path='/' element={
+            <ErrorBoundary>
+              <Suspense fallback={<></>}>
+                <HomePage />
+              </Suspense>
+            </ErrorBoundary>
+          } />
+          <Route path='/shop/*' element={
+            <ErrorBoundary>
+              <Suspense fallback={<></>}>
+                <ShopPage />
+              </Suspense>
+            </ErrorBoundary>
+          } />
+          <Route path='/checkout' element={
+            <ErrorBoundary>
+              <Suspense fallback={<></>}>
+                <CheckoutPage />
+              </Suspense>
+            </ErrorBoundary>
+          } />
+          <Route path='/signin' element={currentUser ? <Navigate replace to='/' /> :
+            <ErrorBoundary>
+              <Suspense fallback={<></>}>
+                <SignInPage />
+              </Suspense>
+            </ErrorBoundary>
+          } />
+          <Route path='/join' element={currentUser ? <Navigate replace to='/' /> :
+            <ErrorBoundary>
+              <Suspense fallback={<></>}>
+                <JoinPage />
+              </Suspense>
+            </ErrorBoundary>
+          } />
+        </Routes>
+      </AnimatePresence>
       <GlobalStyle />
     </>
   );

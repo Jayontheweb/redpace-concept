@@ -10,6 +10,9 @@ import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink } from './header.styles';
 import { ReactComponent as Logo } from '../../assets/REDPACE.svg'
 
+import { AnimatePresence, motion } from 'framer-motion/dist/framer-motion';
+
+
 const Header = () => {
 
     const currentUser = useSelector(selectCurrentUser);
@@ -33,10 +36,12 @@ const Header = () => {
                 }
                 <CartIcon />
             </OptionsContainer>
-            {
-                hidden ? null :
-                    <CartDropdown />
-            }
+            <AnimatePresence exitBeforeEnter>
+                {
+                    hidden ? null :
+                        <CartDropdown />
+                }
+            </AnimatePresence>
 
         </HeaderContainer>
     )

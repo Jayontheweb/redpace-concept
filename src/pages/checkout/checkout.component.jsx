@@ -8,6 +8,9 @@ import StripeCheckoutButton from '../../components/stripe-button';
 
 import './checkout.styles.scss'
 
+import { motion } from 'framer-motion/dist/framer-motion';
+
+
 
 const CheckoutPage = () => {
 
@@ -17,7 +20,12 @@ const CheckoutPage = () => {
 
     return (
         <div className='checkout-page'>
-            <div className='checkout-header'>
+            <motion.div
+                initial={{ opacity: 0, x: 250 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0, x: -150 }}
+                className='checkout-header'>
                 <div className='header-block'>
                     <span>Product</span>
                 </div>
@@ -33,24 +41,48 @@ const CheckoutPage = () => {
                 <div className='header-block'>
                     <span>Remove</span>
                 </div>
-            </div>
+            </motion.div>
             {
-                cartItems.map(cartItem =>
-                    <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+                cartItems.map((cartItem, i) =>
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 250 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.2, delay: i * 0.1 }}
+                        exit={{ opacity: 0, x: 150 }}
+                        className='motion-map-div'
+                    >
+                        <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+                    </motion.div>
                 )
             }
 
-            <div className='total'>
+            <motion.div
+                initial={{ opacity: 0, x: 250 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0, x: -150 }}
+                className='total'>
                 <span>TOTAL: £ {total}</span>
-            </div>
-            <div className='test-warning'>
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 250 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0, x: -150 }}
+                className='test-warning'>
                 *Please use the following test credit card for payments*
                 <br />
                 4242 4242 4242 4242 - Exp: 01/23 - CVV: 123
-            </div>
-            <div className='stripe-btn'>
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 250 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0, x: -150 }}
+                className='stripe-btn'>
                 <StripeCheckoutButton price={total} />
-            </div>
+            </motion.div>
         </div>
     )
 }
