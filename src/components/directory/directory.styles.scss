@@ -4,80 +4,137 @@
     flex-wrap: wrap;
     justify-content: space-between;
     
-    .menu-item {
-        min-width: 30%;
-        height: 300px;
-        flex: 1 1 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid #FF472E;
-        margin: 0 7.5px 15px;
-        overflow: hidden;
+  }
+
+  .menu-item {
+    min-width: 30%;
+    height: 300px;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: unset;
+    margin: 0 7.5px 15px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid#FF472E;
+
     
-        @media screen and (max-width: 500px) {
-          min-width: 90%;
-          min-height: 300px;
-          max-height: 300px;
-        }
-    
-        &:hover {
-          cursor: pointer;
-    
-          & .background-image {
-            transform: scale(1.1);
-            transition: transform 6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-          }
-    
-          & .content {
-            opacity: 0.9;
-          }
-        }
-    
-        &.large {
-            height: 480px;
-        }
+    &:hover {
+      cursor: pointer;
       
-        &:first-child {
-          margin-right: 7.5px;
-        }
+      & .background-image {
+        transform: scale(1.1);
+        transition: transform 6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
       
-        &:last-child {
-          margin-left: 7.5px;
+      & .content {
+        .title {
+          color: #FF472E;
         }
-      
-        .background-image {
-          width: 100%;
-          height: 100%;
-          background-size: cover;
-          background-position: center;
+      }
     }
     
-        .content {
-          height: 90px;
-          padding: 0 25px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          border: 1px solid black;
-          background-color: white;
-          opacity: 0.7;
-          position: absolute;
+    &.large {
+      height: 480px;
+    }
+    
+    &:first-child {
+      margin-right: 7.5px;
+    }
+    
+    &:last-child {
+      margin-left: 7.5px;
+    }
+    
+    .background-image {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .content {
+      height: 90px;
+      padding: unset;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: unset;
+      background-color: unset;
+      opacity: unset;
+      position: absolute;
+      line-height: 90%;
+      bottom: 10px;
+      left: 0;
       
-          .title {
-            font-weight: bold;
-            margin-bottom: 6px;
-            font-size: 22px;
-            color: #4a4a4a;
-          }
+      .title {
+        font-family: 'Fugaz One', cursive;
+        font-weight: bold;
+        margin-bottom: unset;
+        font-size: 95px;
+        color: #ff462e70;
+        letter-spacing: -0.03em;
+        font-style: normal;
+        font-weight: normal;
+        -webkit-text-stroke: 1px #FF472E;
+      }
       
-          .subtitle {
-            font-weight: lighter;
-            font-size: 16px;
-          }
+      
+    }
+
+    @media screen and (max-width: 1400px) {
+      .content {
+        bottom: -5px;
+        .title {
+          font-size: 70px;
+          -webkit-text-stroke: 1px #FF472E;
         }
-      
+      }
+    }
+
+    @media screen and (max-width: 1200px) {
+      .content {
+        bottom: -10px;
+        .title {
+          font-size: 60px;
+          -webkit-text-stroke: 1px #FF472E;
+        }
+      }
+    }
+
+    @media screen and (max-width: 1000px) {
+      .content {
+        bottom: -15px;
+        .title {
+          font-size: 45px;
+          -webkit-text-stroke: 1px #FF472E;
+        }
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      .content {
+        bottom: -20px;
+        .title {
+          font-size: 40px;
+          -webkit-text-stroke: 1px #FF472E;
+        }
+      }
+    }
+    
+    @media screen and (max-width: 500px) {
+      min-width: 90%;
+      min-height: 300px;
+      max-height: 300px;
+      .content {
+        bottom: 0;
+        .title {
+          font-size: 70px;
+          -webkit-text-stroke: 1px #FF472E;
+        }
+      }
     }
   }
   

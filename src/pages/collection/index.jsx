@@ -7,10 +7,13 @@ import { useParams } from 'react-router-dom';
 
 
 import CollectionItem from '../../components/collection-item/collection-item.component';
+import Footer from '../../components/footer';
 
 import './collection.styles.scss';
 
 import { motion } from 'framer-motion/dist/framer-motion';
+
+import { Helmet } from 'react-helmet';
 
 const CollectionPage = () => {
 
@@ -25,6 +28,11 @@ const CollectionPage = () => {
             transition={{ duration: 0.3 }}
             exit={{ opacity: 0, x: -150 }}
             className='collection-page'>
+
+            <Helmet>
+                <title>{title} | Red Pace.</title>
+            </Helmet>
+
             <motion.h2
                 initial={{ opacity: 0, x: 150 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -42,6 +50,7 @@ const CollectionPage = () => {
                     items.map(item => <CollectionItem key={item.id} item={item} />)
                 }
             </div>
+            <Footer />
         </motion.div>
     )
 }

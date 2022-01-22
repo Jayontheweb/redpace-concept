@@ -9,6 +9,12 @@ const buttonStyles = css`
       }
 `;
 
+const emptyButtonStyles = css`
+  background-color:  unset; 
+  border: 1px solid black;
+  color: #000000;
+`;
+
 const invertedButtonStyles = css`
     opacity: 0.8;
     background-color: white;
@@ -32,6 +38,8 @@ const googleSignInStyles = css`
 const getButtonStyles = props => {
     if (props.isGoogleSignIn) {
         return googleSignInStyles
+    } else if (props.empty) {
+        return emptyButtonStyles
     }
 
     return props.inverted ? invertedButtonStyles : buttonStyles;

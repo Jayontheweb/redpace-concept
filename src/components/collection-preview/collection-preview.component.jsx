@@ -3,6 +3,7 @@ import './collection-preview.styles.scss';
 import { useNavigate } from 'react-router-dom';
 
 import CollectionItem from '../collection-item/collection-item.component';
+import CustomButton from '../custom-button/custom-button.component';
 
 import { motion } from 'framer-motion/dist/framer-motion';
 
@@ -37,7 +38,15 @@ export default function CollectionPreview({ title, items }) {
                 }
 
             </motion.div>
-
+            <motion.div
+                initial={{ opacity: 0, y: 250 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.2, }}
+                exit={{ opacity: 0, x: -150 }}
+                className='preview-btn-container'
+            >
+                <CustomButton onClick={() => navigate(`../${title.toLowerCase()}`)} className='preview-btn'>SEE MORE IN {title.toUpperCase()}</CustomButton>
+            </motion.div>
         </div>
     )
 }

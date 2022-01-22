@@ -2,12 +2,6 @@
 import Header from './components/header/header.component';
 import ErrorBoundary from './components/error-boundary';
 import ScrollToTop from './components/scroll-to-top';
-// import Square from './components/square';
-// import HomePage from './pages/homepage/homepage.component';
-// import ShopPage from './pages/shop/shop.component';
-// import JoinPage from './pages/sign-in-and-sign-up/join.component';
-// import SignInPage from './pages/sign-in-and-sign-up/sign-in.component';
-// import CheckoutPage from './pages/checkout/checkout.component';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
@@ -19,9 +13,12 @@ import { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 
-import { AnimatePresence, motion } from 'framer-motion/dist/framer-motion';
+import { AnimatePresence } from 'framer-motion/dist/framer-motion';
 
+import { Helmet } from 'react-helmet';
 
+const AboutPage = lazy(() => import('./pages/about'));
+const NotFound = lazy(() => import('./pages/not-found'));
 const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
 const ShopPage = lazy(() => import('./pages/shop/shop.component'));
 const JoinPage = lazy(() => import('./pages/sign-in-and-sign-up/join.component'));
@@ -65,6 +62,10 @@ const App = () => {
   return (
     <>
       <Header />
+      <Helmet>
+        <title>Red Pace. | Clothing shop concept web-site</title>
+        <meta name="description" content="This is a concept of an e-commerce clothing web-site created as a part of a porfolio of a web developer." />
+      </Helmet>
       <ScrollToTop />
       <AnimatePresence exitBeforeEnter>
         <Routes location={location} key={location.pathname}>
@@ -100,6 +101,20 @@ const App = () => {
             <ErrorBoundary>
               <Suspense fallback={<></>}>
                 <JoinPage />
+              </Suspense>
+            </ErrorBoundary>
+          } />
+          <Route path='*' element={
+            <ErrorBoundary>
+              <Suspense fallback={<></>}>
+                <NotFound />
+              </Suspense>
+            </ErrorBoundary>
+          } />
+          <Route path='/about' element={
+            <ErrorBoundary>
+              <Suspense fallback={<></>}>
+                <AboutPage />
               </Suspense>
             </ErrorBoundary>
           } />

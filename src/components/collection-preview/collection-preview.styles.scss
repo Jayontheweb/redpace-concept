@@ -23,5 +23,22 @@
         gap: 10px;
       }
     }
+
+    .preview-btn-container {
+      margin-top: 30px;
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+
+
+      @media screen and (max-width: 800px) {
+margin-top: 30px;
+
+        .preview-btn {
+          width: 100%;
+        }
+        
+      }
+    }
   }
   

@@ -3,19 +3,18 @@ import { Link } from "react-router-dom";
 
 
 export const HeaderContainer = styled.div`
-    height: 70px;
+    height: 60px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 0 80px;
-    background-color: white;
-    opacity: 0.92;
+    background-color: rgba(255, 255, 255, 0.5);
     position: fixed;
     z-index: 100;
 
     @media screen and (max-width: 800px) {
         padding: 0 25px;
-        height: 60px;
+        height: 55px;
         max-width: 100vw;
     }
 `;

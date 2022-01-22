@@ -10,7 +10,7 @@ import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink } from './header.styles';
 import { ReactComponent as Logo } from '../../assets/REDPACE.svg'
 
-import { AnimatePresence, motion } from 'framer-motion/dist/framer-motion';
+import { AnimatePresence } from 'framer-motion/dist/framer-motion';
 
 
 const Header = () => {
@@ -25,7 +25,7 @@ const Header = () => {
             </LogoContainer>
             <OptionsContainer>
                 <OptionLink to='shop'>SHOP</OptionLink>
-                <OptionLink to='contact'>CONTACT</OptionLink>
+                <OptionLink to='about'>ABOUT</OptionLink>
                 {
                     currentUser ?
                         (<OptionLink as='div' onClick={() => auth.signOut()}>

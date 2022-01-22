@@ -7,12 +7,17 @@ import CollectionPreview from '../collection-preview/collection-preview.componen
 
 import './collections-overview.styles.scss';
 
+import { Helmet } from 'react-helmet';
+
 const CollectionsOverview = () => {
 
     const collections = useSelector(selectCollectionsForPrieview);
 
     return (
         <div className='collections-overview'>
+            <Helmet>
+                <title>Shop | Red Pace.</title>
+            </Helmet>
             <div className='overwiev-items'>
                 {
                     collections.map(({ id, ...otherCollectionProps }) => (

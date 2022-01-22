@@ -4,13 +4,15 @@ import { useSelector } from 'react-redux';
 import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selectors';
 
 import CheckoutItem from '../../components/checkout-item';
+import Footer from '../../components/footer';
+
 import StripeCheckoutButton from '../../components/stripe-button';
 
 import './checkout.styles.scss'
 
 import { motion } from 'framer-motion/dist/framer-motion';
 
-
+import { Helmet } from 'react-helmet';
 
 const CheckoutPage = () => {
 
@@ -20,6 +22,11 @@ const CheckoutPage = () => {
 
     return (
         <div className='checkout-page'>
+
+            <Helmet>
+                <title>Checkout | Red Pace.</title>
+            </Helmet>
+
             <motion.div
                 initial={{ opacity: 0, x: 250 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -83,6 +90,8 @@ const CheckoutPage = () => {
                 className='stripe-btn'>
                 <StripeCheckoutButton price={total} />
             </motion.div>
+
+            <Footer />
         </div>
     )
 }
