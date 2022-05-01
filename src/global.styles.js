@@ -8,7 +8,20 @@ body {
     background-color: #577170;
 }
 
-
+.active {
+    ::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FF472E;
+    transform: scaleX(1);
+    transition: transform 0.3s ease;
+    }
+}
 
 a {
     text-decoration: none;

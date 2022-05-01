@@ -76,31 +76,38 @@ const App = () => {
               </Suspense>
             </ErrorBoundary>
           } />
-          <Route path='/shop/*' element={
+          <Route path='shop/*' element={
             <ErrorBoundary>
               <Suspense fallback={<></>}>
                 <ShopPage />
               </Suspense>
             </ErrorBoundary>
           } />
-          <Route path='/checkout' element={
+          <Route path='checkout' element={
             <ErrorBoundary>
               <Suspense fallback={<></>}>
                 <CheckoutPage />
               </Suspense>
             </ErrorBoundary>
           } />
-          <Route path='/signin' element={currentUser ? <Navigate replace to='/' /> :
+          <Route path='signin' element={currentUser ? <Navigate replace to='/' /> :
             <ErrorBoundary>
               <Suspense fallback={<></>}>
                 <SignInPage />
               </Suspense>
             </ErrorBoundary>
           } />
-          <Route path='/join' element={currentUser ? <Navigate replace to='/' /> :
+          <Route path='join' element={currentUser ? <Navigate replace to='/' /> :
             <ErrorBoundary>
               <Suspense fallback={<></>}>
                 <JoinPage />
+              </Suspense>
+            </ErrorBoundary>
+          } />
+          <Route path='about' element={
+            <ErrorBoundary>
+              <Suspense fallback={<></>}>
+                <AboutPage />
               </Suspense>
             </ErrorBoundary>
           } />
@@ -108,13 +115,6 @@ const App = () => {
             <ErrorBoundary>
               <Suspense fallback={<></>}>
                 <NotFound />
-              </Suspense>
-            </ErrorBoundary>
-          } />
-          <Route path='/about' element={
-            <ErrorBoundary>
-              <Suspense fallback={<></>}>
-                <AboutPage />
               </Suspense>
             </ErrorBoundary>
           } />

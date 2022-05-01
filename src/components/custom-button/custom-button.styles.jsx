@@ -22,6 +22,7 @@ const invertedButtonStyles = css`
     &:hover {
       background-color: #FF472E;
       color: black;
+      opacity: 1;
     }
 `;
 
@@ -36,13 +37,13 @@ const googleSignInStyles = css`
 `;
 
 const getButtonStyles = props => {
-    if (props.isGoogleSignIn) {
-        return googleSignInStyles
-    } else if (props.empty) {
-        return emptyButtonStyles
-    }
+  if (props.isGoogleSignIn) {
+    return googleSignInStyles
+  } else if (props.empty) {
+    return emptyButtonStyles
+  }
 
-    return props.inverted ? invertedButtonStyles : buttonStyles;
+  return props.inverted ? invertedButtonStyles : buttonStyles;
 };
 
 export const CustomButtonContainer = styled.button`
@@ -62,6 +63,7 @@ export const CustomButtonContainer = styled.button`
     transition-duration: 0.3s;
     display: flex;
     justify-content: center;
+    border-radius: 2px;
 
     ${getButtonStyles}
 `;

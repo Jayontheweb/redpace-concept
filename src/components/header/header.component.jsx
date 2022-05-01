@@ -18,6 +18,7 @@ const Header = () => {
     const currentUser = useSelector(selectCurrentUser);
     const hidden = useSelector(selectCartHidden);
 
+
     return (
         <HeaderContainer>
             <LogoContainer to='/'>
@@ -32,7 +33,7 @@ const Header = () => {
                             SIGN OUT
                         </OptionLink>)
                         :
-                        (<OptionLink to='/signin'>SIGN IN</OptionLink>)
+                        (<OptionLink to='signin'>SIGN IN</OptionLink>)
                 }
                 <CartIcon />
             </OptionsContainer>

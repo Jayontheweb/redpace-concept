@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+
+import { Link, NavLink } from "react-router-dom";
 
 
 export const HeaderContainer = styled.div`
@@ -42,9 +43,40 @@ export const OptionsContainer = styled.div`
     }
 `;
 
-export const OptionLink = styled(Link)`
+
+
+
+
+export const OptionLink = styled(NavLink)`
 padding: 10px 15px;
 cursor: pointer;
+
+position: relative;
+text-decoration: none;
+color: #000;
+
+
+:hover {
+    color: #000;
+}
+
+::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FF472E;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+:hover::before {
+    transform: scaleX(1);
+}
+
 
 @media screen and (max-width: 800px) {
     padding: 10px 10px;
