@@ -22,14 +22,14 @@ export default function AboutPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, type: "spring" }}
                     >
-                        <img src="/guy.png" alt="A man in a red velvet formal suit without a shirt under" />
+                        <img src="https://i.ibb.co/H4zhWGW/Guy.png" alt="A man in a red velvet formal suit without a shirt under" />
                     </ImageMan>
                     <ImageWoman
                         initial={{ opacity: 0, y: 550 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, type: "spring" }}
                     >
-                        <img src="/girl.png" alt="A woman in a red t-shirt, black jacket and vividly coloured sunglasses" />
+                        <img src="https://i.ibb.co/f9dP5LZ/Girl.png" alt="A woman in a red t-shirt, black jacket and vividly coloured sunglasses" />
                     </ImageWoman>
                 </ImagesContainer>
 
