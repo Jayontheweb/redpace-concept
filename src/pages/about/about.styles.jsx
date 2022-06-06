@@ -7,6 +7,7 @@ export const AboutPageContainer = styled(motion.div)`
     display: grid;
     grid-template-columns: 45vw 1fr;
     gap: 10px;
+    cursor: default;
 
     @media screen and (max-width: 1500px) {
         grid-template-columns: 55vw 1fr;
@@ -115,7 +116,7 @@ export const Title = styled(motion.span)`
 `;
 
 export const Description = styled(motion.div)`
-margin-top: 30px;;
+margin-top: 30px;
 text-align: left;
 font-size: 20px;
 line-height: 170%;
@@ -127,4 +128,13 @@ letter-spacing: 0.02em;
     }
 `;
 
+export const Link = styled.a`
+font-weight: bold;
+color: #FF472E;
+position: relative;
+`;
+
+export const Bold = styled.span`
+    font-weight: bold;
+`;
 

@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 
 import Footer from "../../components/footer";
 
-import { AboutPageContainer, ImagesContainer, TextSectionContainer, Title, Description, ImageMan, ImageWoman } from "./about.styles";
+import { AboutPageContainer, ImagesContainer, TextSectionContainer, Title, Description, ImageMan, ImageWoman, Link, Bold } from "./about.styles";
 
 
 export default function AboutPage() {
@@ -51,8 +51,7 @@ export default function AboutPage() {
                         HELLO!
                     </Title>
                     <Description>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, rerum doloremque eius eligendi nemo reprehenderit praesentium sed corporis repudiandae dolores excepturi explicabo eos voluptate dolorum impedit beatae ipsum consequatur aliquid.
-                        Adipisci aspernatur distinctio aliquid impedit sapiente laboriosam sequi ratione quo fugiat tempore consectetur doloremque nesciunt numquam voluptatum pariatur, quibusdam quod soluta dolor rerum cum autem, vel totam. Nobis, numquam aperiam?
+                        My name is <Bold>Jenya (Jay) Chebanov</Bold> and you are currently browsing my <Link href='https://chebanov.vercel.app/' target='_blank' rel='noreferrer'>portfolio</Link> project website. Some of the thechnologies used in creating this website are as follows: <Bold>react.js</Bold> as the main javascript framework; <Bold>react redux</Bold> and <Bold>react router v6</Bold> for state management and routing; <Bold>firebase</Bold> and <Bold>google auth</Bold> as the database and the means to manage authantication; <Bold>SASS</Bold> and <Bold>styled components</Bold> were used to address styling and <Bold>framer motion</Bold> to top it off with minimalistic animations. If you would like to <Bold>get in touch</Bold> with me you could visit my <Link href='https://chebanov.vercel.app/' target='_blank' rel='noreferrer'>portfolio</Link> page or hit me up on my <Link href="mailto:chebanov.dev@gmail.com" target='_blank' rel='noreferrer' >email</Link>, <Link href='https://t.me/heyyevhen' target='_blank' rel='noreferrer'>telegram</Link> or <Link href='https://www.linkedin.com/in/jenya-chebanov/' target='_blank' rel='noreferrer'>linkedIn</Link>. Thank you for visiting this site and <Bold>have a fabulous day!</Bold>
                     </Description>
                 </TextSectionContainer>
             </AboutPageContainer>
